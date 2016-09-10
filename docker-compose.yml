@@ -1,0 +1,21 @@
+version: '2'
+services:
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: 'andresfuentes/adc'
+        hostname: $HOSTNAME
+        environment:
+            - 'constraint:tier.app==true'
+            - 'affinity:container!=~*app*'
+        ports:
+            - '9090:9090'
+        extra_hosts:
+            - 'database:adc-database.eastus.cloudapp.azure.com'
+        # links:
+        #     - 'database:database-mysql'
+        restart: always
+
+
+

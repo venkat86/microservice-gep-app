@@ -1,0 +1,69 @@
+            		<header class="header" data-ng-include="'app/views/header.html'"></header>
+
+<div class="row">
+            <div class="container center-content" style="padding-left:0px;padding-right:0px;">
+        <div  class="da-slider">    
+    <div class="col-md-4 col-md-offset-4">
+      <h1 class="title lead" style="color:black">Sign In</h1>
+      <form class="form-horizontal" method="post" action="%23/login">
+          <label for="username" style="color:black;text-align: left">Username:</label>
+          <input type="text" class="form-control" id="username" placeholder="Enter username" name="username" >
+          <label for="password" style="color:black;text-align: left">Password:</label>
+          <input type="password" class="form-control" id="password" placeholder="Enter password" type="password" name="password">
+          <div class="alert alert-danger" id="loginerror" role="alert">
+            invalid usermame or password
+          </div>
+          
+          <button type="submit"  class="btn btn-default submit">Sign in</button>
+      </form>
+      <div class="social">
+          <a class="facebook" >
+              <i class="fa fa-facebook-square" data-ng-click="fbLogin()" ></i>
+          </a>
+          <a class="google-plus">
+              <i class="fa fa-google-plus-square" data-ng-click="gplusLogin()"></i>
+          </a>
+      </div>
+    </div>
+  </div>
+  </div>
+   <div class="container center-content padd15">
+        	
+			<ul class="foot-link">
+            	<li>
+                	<a href="#">Member firms</a>
+                </li>
+                <li>      
+                    <a href="#">Site map</a>
+                </li>
+                <li>     
+                    <a href="#">Contact us</a> 
+                </li>
+                
+            </ul>
+        </div>
+       <footer class="footer wow" data-wow-duration="2s" data-ng-include="'app/views/footer.html'"></footer>
+</div>
+
+<script type="text/javascript">
+		$.extend({
+			  getUrlVars: function(){
+			    var vars = [], hash;
+			    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+			    for(var i = 0; i < hashes.length; i++)
+			    {
+			      hash = hashes[i].split('=');
+			      vars.push(hash[0]);
+			      vars[hash[0]] = hash[1];
+			    }
+			    return vars;
+			  },
+			  getUrlVar: function(name){
+			    return $.getUrlVars()[name];
+			  }
+			});
+		$('#loginerror').hide();
+		if ($.getUrlVar("error") != null) {
+			$('#loginerror').show();
+		}
+	</script>

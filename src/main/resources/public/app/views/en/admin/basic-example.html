@@ -1,0 +1,70 @@
+
+
+<header class="header" data-ng-include="'app/views/header.html'"></header>
+<div class="header" data-ng-include="'app/views/menu.html'"></div>
+<!-- Nested node template -->
+<script type="text/ng-template" id="nodes_renderer.html">
+  <div ui-tree-handle class="tree-node tree-node-content">
+    <a class="btn btn-success btn-xs" ng-if="node.nodes && node.nodes.length > 0" data-nodrag ng-click="toggle(this)"><span
+        class="glyphicon"
+        ng-class="{
+          'glyphicon-chevron-right': collapsed,
+          'glyphicon-chevron-down': !collapsed
+        }"></span></a>
+
+      <span class="nodeTitle" data-nodrag ng-click="showText(this)" ng-show="!enableText" style="word-wrap: break-word;">{{node.title}}</span>
+     <!-- <input type="text" class="nodeTitle" data-nodrag ng-show="enableText" ng-model="node.title" /> -->
+	<textarea style="width:70%;height:50px" class="{{node.id}}" id="{{node.id}}" ng-show="enableText" data-nodrag 
+       ng-model="node.title">
+         
+       </textarea> 
+
+	 <a ng-show="enableText" class="btn btn-danger btn-xs" data-nodrag ng-click="hideText(this, node)"><span
+        class="glyphicon glyphicon-ok"></span></a> 
+
+    <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="remove(this)"><span
+        class="glyphicon glyphicon-remove"></span></a>
+    <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" style="margin-right: 8px;"><span
+        class="glyphicon glyphicon-plus"></span></a>
+  </div>
+  <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
+    <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'">
+    </li>
+  </ol>
+</script>
+
+<script>
+  
+</script>
+<div class="row">
+  <div class="col-sm-12 padd15" style="margin-left:40px; position:relative">
+
+    <button ng-click="expandAll()" class="btn-success">Expand all</button>
+    <button ng-click="collapseAll()" class="btn-success">Collapse all</button>
+  </div>
+</div>
+<div class="row">
+	    <h1>Realtime Collaboration Quickstart</h1>
+   
+	  <input type="button" id="auth_button" value="authorize" ng-controller="BasicExampleCtrl">
+</div>
+<div class="row">
+  <div class="col-sm-10" style="margin-left:90px;">
+    <div ui-tree id="tree-root">
+      <ol ui-tree-nodes ng-model="data">
+        <li ng-repeat="node in data" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+      </ol>
+    </div>
+  </div>
+	<div class="col-sm-6">
+		  <input type="button" value="start" ng-click="initializeRealTimeAPI();"> 
+	</div>	
+  <!-- <div class="col-sm-6">
+    <div class="info">
+      {{info}}
+    </div>
+    <pre class="code">{{ data | json }}</pre>
+  </div> -->
+
+</div>
+<footer class="footer wow" data-wow-duration="2s" data-ng-include="'app/views/footer.html'"></footer>

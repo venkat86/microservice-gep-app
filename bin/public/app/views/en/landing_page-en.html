@@ -1,0 +1,92 @@
+            		<header class="header" data-ng-include="'app/views/header.html'"></header>
+<!-- <div data-ng-include="'app/views/menu.html'"></div> -->
+<div class="header" data-ng-include="'app/views/menu.html'"></div>
+<div class="row">
+            <div class="container center-content" style="padding-left:0px;padding-right:0px;">
+
+                 <!-- Slideshow -->
+
+                 <div id="da-slider" class="da-slider">
+
+                 	 <div class="da-slide" style="background:url(slide/images/slide2.jpg) no-repeat center center; background-size:cover;">
+                        <div class="da-caption">
+                        <h2>
+                        Tech breakthroughs megatrend
+                        </h2>
+                        <p> How to prepare for the technological breakthroughs megatrend, and the eight technologies to start with</p>
+                        <a href="#" class="da-link">Read more</a>
+                        </div>
+                        <div class="da-img">&nbsp;</div>
+                    </div>
+
+
+                    <div class="da-slide" style="background:url(slide/images/slide3.jpg) no-repeat center center; background-size:cover;">
+                        <div class="da-caption">
+                        <h2>
+                        PwC's Global Data and Analytics Survey 2016: Big Decisions�
+                        </h2>
+                        <p>
+                        What is holding back executives from making strategic and operational decisions that are more data-driven?
+                        </p>
+                        <a href="#" class="da-link">Read more</a>
+                        </div>
+                        <div class="da-img">&nbsp;</div>
+                    </div>
+                    <div class="da-slide" style="background:url(slide/images/slide1.jpg) no-repeat center center; background-size:cover;">
+                        <div class="da-caption">
+                        <h2>
+                        Global Crisis Centre
+                        </h2>
+                        <p>We'll work beside you to help you prepare for, respond to, and recover from crisis</p>
+                        <a href="#" class="da-link">Read more</a>
+                        </div>
+                        <div class="da-img">&nbsp;</div>
+                    </div>
+
+                    <div class="da-slide" style="background:url(slide/images/slide4.jpg) no-repeat center center; background-size:cover;">
+                        <div class="da-caption">
+                        <h2>
+                        Global Economy Watch
+                        </h2>
+                        <p> What does an EU exit mean for London�s role as an international financial centre?</p>
+                        <a href="#" class="da-link">Read more</a>
+                        </div>
+                        <div class="da-img">&nbsp;</div>
+                    </div>
+
+                    <nav class="da-arrows">
+                        <span class="da-arrows-prev"></span>
+                        <span class="da-arrows-next"></span>
+                    </nav>
+                </div>
+
+            </div>
+		</div>
+                <div class="container center-content padd15">
+
+			<ul class="foot-link">
+            	<li>
+                	<a href="#">Member firms</a>
+                </li>
+                <li>
+                    <a href="#">Site map</a>
+                </li>
+                <li>
+                    <a href="#">Contact us</a>
+                </li>
+
+            </ul>
+        </div>
+       <footer class="footer wow" data-wow-duration="2s" data-ng-include="'app/views/footer.html'"></footer>
+	<!-- Slide Script -->
+	<script type="text/javascript" src="slide/js/jquery.cslider.js"></script>
+    <script type="text/javascript">
+        $(function() {
+
+            $('#da-slider').cslider({
+                autoplay	: true,
+                bgincrement	: 450
+            });
+
+        });
+    </script>
